@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export function HeroSection() {
   return (
-    <section className="bg-gradient-to-br from-[#2962ff]/5 via-white to-[#e3f2fd]/30 py-16 relative overflow-hidden">
+    <section className="bg-gradient-to-br from-[#2962ff]/5 via-white to-[#e3f2fd]/30 py-16 pt-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-[#2962ff]/[0.02] opacity-50"></div>
       <div className="container z-10 mx-auto px-4 relative">
         <div className="flex flex-col items-center justify-center max-w-[540px] mx-auto">

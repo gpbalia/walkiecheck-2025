@@ -43,7 +43,7 @@ export function FeaturesSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 mt-16">
           {features.map((feature) => (
-            <div
+            <div 
               key={feature.title}
               className="group relative p-8 rounded-3xl bg-white/60 backdrop-blur-lg border border-white/30 shadow-2xl shadow-slate-900/10 transition-all duration-300 hover:scale-105 hover:bg-white/80"
             >
@@ -58,8 +58,8 @@ export function FeaturesSection() {
                   {feature.title}
                 </h3>
                 <p className="text-gray-700 text-base lg:text-lg">
-                  {feature.description}
-                </p>
+                {feature.description}
+              </p>
               </div>
             </div>
           ))}

@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
+import { useAuth, UserButton } from "@clerk/nextjs"
 
 const navigationItems = [
   { label: 'Features', href: '/#features' },
@@ -13,6 +14,7 @@ const navigationItems = [
 
 const Navbar1 = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { isSignedIn } = useAuth()
 
   const toggleMenu = () => setIsOpen(!isOpen)
   const closeMenu = () => setIsOpen(false)
@@ -44,18 +46,24 @@ const Navbar1 = () => {
         
         {/* Desktop CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <a
-            href="/sign-in"
-            className="inline-flex items-center justify-center px-5 py-2 text-sm font-semibold border-2 border-[#2962ff] text-[#2962ff] bg-white/40 backdrop-blur-sm rounded-full hover:bg-[#2962ff] hover:text-white transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-[#2962ff] focus:ring-offset-2"
-          >
-            Sign In
-          </a>
-          <a
-            href="/sign-up"
-            className="inline-flex items-center justify-center px-5 py-2 text-sm text-white bg-[#2962ff]/90 backdrop-blur-sm rounded-full hover:bg-[#1a237e] transition-colors font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-[#2962ff] focus:ring-offset-2"
-          >
-            Sign Up
-          </a>
+          {isSignedIn ? (
+            <UserButton />
+          ) : (
+            <>
+              <a
+                href="/sign-in"
+                className="inline-flex items-center justify-center px-5 py-2 text-sm font-semibold border-2 border-[#2962ff] text-[#2962ff] bg-white/40 backdrop-blur-sm rounded-full hover:bg-[#2962ff] hover:text-white transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-[#2962ff] focus:ring-offset-2"
+              >
+                Sign In
+              </a>
+              <a
+                href="/sign-up"
+                className="inline-flex items-center justify-center px-5 py-2 text-sm text-white bg-[#2962ff]/90 backdrop-blur-sm rounded-full hover:bg-[#1a237e] transition-colors font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-[#2962ff] focus:ring-offset-2"
+              >
+                Sign Up
+              </a>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -97,20 +105,26 @@ const Navbar1 = () => {
             ))}
 
             <div className="flex flex-col gap-3 mt-8">
-              <a
-                href="/sign-in"
-                className="inline-flex items-center justify-center w-full px-5 py-3 text-base font-semibold border-2 border-[#2962ff] text-[#2962ff] bg-white/40 backdrop-blur-sm rounded-full hover:bg-[#2962ff] hover:text-white transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-[#2962ff] focus:ring-offset-2"
-                onClick={closeMenu}
-              >
-                Sign In
-              </a>
-              <a
-                href="/sign-up"
-                className="inline-flex items-center justify-center w-full px-5 py-3 text-base text-white bg-[#2962ff]/90 backdrop-blur-sm rounded-full hover:bg-[#1a237e] transition-colors font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-[#2962ff] focus:ring-offset-2"
-                onClick={closeMenu}
-              >
-                Sign Up
-              </a>
+              {isSignedIn ? (
+                <UserButton />
+              ) : (
+                <>
+                  <a
+                    href="/sign-in"
+                    className="inline-flex items-center justify-center w-full px-5 py-3 text-base font-semibold border-2 border-[#2962ff] text-[#2962ff] bg-white/40 backdrop-blur-sm rounded-full hover:bg-[#2962ff] hover:text-white transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-[#2962ff] focus:ring-offset-2"
+                    onClick={closeMenu}
+                  >
+                    Sign In
+                  </a>
+                  <a
+                    href="/sign-up"
+                    className="inline-flex items-center justify-center w-full px-5 py-3 text-base text-white bg-[#2962ff]/90 backdrop-blur-sm rounded-full hover:bg-[#1a237e] transition-colors font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-[#2962ff] focus:ring-offset-2"
+                    onClick={closeMenu}
+                  >
+                    Sign Up
+                  </a>
+                </>
+              )}
             </div>
           </div>
         </div>

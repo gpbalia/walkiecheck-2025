@@ -2,6 +2,7 @@ import { type Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
+import LayoutWrapper from '@/components/layout-wrapper'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -25,9 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" style={{ scrollBehavior: 'smooth' }}>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          {children}
+          <LayoutWrapper>{children}</LayoutWrapper>
         </body>
       </html>
     </ClerkProvider>

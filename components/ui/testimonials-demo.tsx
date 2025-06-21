@@ -1,5 +1,6 @@
 "use client";
 import { TestimonialsColumn, Testimonial } from "@/components/ui/testimonials-columns-1";
+import { motion } from "framer-motion";
 
 const testimonials: Testimonial[] = [
   {
@@ -67,7 +68,13 @@ export function TestimonialsSection() {
     <section className="bg-white py-20 relative" id="testimonials">
       <div className="absolute inset-0 bg-gradient-to-br from-[#6a4cff]/5 via-transparent to-[#e3f2fd]/20"></div>
       <div className="container z-10 mx-auto px-4 relative">
-        <div className="flex flex-col items-center justify-center max-w-[540px] mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
+        >
           <div className="flex justify-center">
             <div className="border py-1 px-4 rounded-lg border-[#6a4cff] text-[#6a4cff] bg-white/90 backdrop-blur-sm shadow-sm">Testimonials</div>
           </div>
@@ -75,7 +82,7 @@ export function TestimonialsSection() {
           <p className="text-center mt-6 opacity-75 text-gray-700 max-w-[480px] text-lg">
             See what our customers have to say about us.
           </p>
-        </div>
+        </motion.div>
         <div 
           className="flex justify-center gap-6 lg:gap-8 mt-16 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden"
           aria-label="Customer testimonials"

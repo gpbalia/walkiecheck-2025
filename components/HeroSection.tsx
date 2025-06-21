@@ -29,15 +29,15 @@ export function HeroSection() {
             </Link>
           </div>
         </div>
-        <div className="flex justify-center mt-16">
-          <div className="w-[280px] h-[560px] sm:w-[320px] sm:h-[640px] bg-white rounded-3xl flex items-center justify-center shadow-2xl border border-[#e3f2fd] relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#2962ff]/5 to-transparent rounded-3xl"></div>
+        <div className="mt-16 flex justify-center">
+          <div className="relative w-full max-w-6xl rounded-2xl shadow-2xl shadow-blue-900/20">
+            <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-blue-400 via-pink-400 to-green-400 opacity-20 blur-xl"></div>
             <Image 
-              src="/window.svg" 
-              alt="WalkieCheck app interface preview" 
-              width={180} 
-              height={360} 
-              className="opacity-80 w-auto h-auto max-w-[140px] sm:max-w-[180px] relative z-10" 
+              src="/Crypto-web-app-dashboard copy.png" 
+              alt="WalkieCheck app dashboard screenshot" 
+              width={1200} 
+              height={750} 
+              className="relative rounded-2xl border border-white/20" 
               priority
             />
           </div>

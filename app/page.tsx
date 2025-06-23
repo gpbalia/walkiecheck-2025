@@ -1,7 +1,7 @@
-import { HeroSection } from '@/components/HeroSection'
-import { FeaturesSection } from '@/components/FeaturesSection'
-import { TestimonialsSection } from '@/components/ui/testimonials-demo'
-import { PricingSection } from '@/components/PricingSection'
+import { HeroSection } from '@/components/landing-page/hero-section'
+import { FeaturesSection } from '@/components/landing-page/features-section'
+import { TestimonialsSection } from '@/components/landing-page/testimonials-section'
+import { PricingSection } from '@/components/landing-page/pricing-section'
 
 export default function Home() {
   return (
